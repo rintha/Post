@@ -24,7 +24,7 @@ function create4Post(post, callback) {
     setTimeout(() => {
         posts.push(post)
         callback();
-    }, 4000);
+    }, 6000);
 }
 
 
