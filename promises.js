@@ -44,6 +44,8 @@ function deletePost(){
 }
 
 createPost({title:`Post Three`,body:`This is post three`})
+createPost({title:`Post Four`,body:`This is post four`})
+
 .then(()=>{
     getPost()
     deletePost().then((deleteElement)=>{
@@ -53,10 +55,13 @@ createPost({title:`Post Three`,body:`This is post three`})
             getPost();
             deletePost().then(()=>{
                 getPost();
+                deletePost().then(()=>{
+                    getPost();
                 deletePost().then(()=>{})
                 .catch((err)=>{
                     console.log('Inside catch block',err)
                 })
+            }).catch((err)=>{})
             }).catch((err)=>{})
         }).catch((err)=>{})
     })
