@@ -13,6 +13,9 @@ const preMovie = async ()=>{
     const addButter = new Promise((resolve, reject) => 
     resolve(`Butter`));
 
+    const getColdDrinks = new Promise((resolve, reject) => 
+    resolve(`Cold drinks`));
+
     let ticket = await promiseWifeBringingTickets;
 
     console.log(`wife : I have the ${ticket}`);
@@ -29,10 +32,12 @@ const preMovie = async ()=>{
 
     console.log(`husband : I got some ${butter} on popcorn`);
     console.log('husband : anything else darling?');
+    console.log('wife : can we have  some cold drinks');
+
+    let drinks = await getColdDrinks;
     console.log('wife : lets got we are getting late');
     console.log('husband:thank you for the reminder');
     
-
     return ticket
 }
 preMovie().then((m)=>console.log(`person3:shows the ${m}`));
