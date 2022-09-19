@@ -20,7 +20,7 @@ function createPost(post, callback) {
     }, 2000);
 }
 
-function create4thPost(post, callback) {
+function create4Post(post, callback) {
     setTimeout(() => {
         posts.push(post)
         callback();
