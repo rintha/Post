@@ -12,7 +12,7 @@ function getPost(){
            });
         document.body.innerHTML = output;
     }, 1000);
-        
+
 }
 
 function createPost(post) {
@@ -25,45 +25,16 @@ function createPost(post) {
             }else{
                 reject('error:something went wrong')
             }
-            
+
         }, 2000);
-       
-    });
-}
-function deletePost(){
-    return new Promise((resolve, reject)=>{
-        setTimeout( () =>{
-            if(posts.length>0){
-                const lastElement = posts.pop()
-                resolve(lastElement);
-            }else{
-                reject('array is empty now');
-            }
-        },1000);
+
     });
 }
 
-createPost({title:`Post Three`,body:`This is post three`})
-createPost({title:`Post Four`,body:`This is post four`})
+// promise.all
 
-.then(()=>{
-    getPost()
-    deletePost().then((deleteElement)=>{
-        console.log(deleteElement)
-        getPost();
-        deletePost().then(()=>{
-            getPost();
-            deletePost().then(()=>{
-                getPost();
-                deletePost().then(()=>{
-                    getPost();
-                deletePost().then(()=>{})
-                .catch((err)=>{
-                    console.log('Inside catch block',err)
-                })
-            }).catch((err)=>{})
-            }).catch((err)=>{})
-        }).catch((err)=>{})
-    })
-})
-.catch(err => console.log(err))
+const promise1 = Promise.resolve('Hello World');
+const promise2 = 10;
+const promise3 = new Promise((resolve,reject)=>
+setTimeout(resolve,2000,'Goodbye'));
+Promise.all([promise1,promise2,promise3]).then(values=> console.log(values));
