@@ -31,6 +31,11 @@ function createPost(post) {
     });
 }
 
+updateLastUserActivityTime(){
+
+}
+
+
 // promise.all
 
 const promise1 = Promise.resolve('Hello World');
