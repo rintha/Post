@@ -30,8 +30,35 @@ function createPost(post) {
        
     });
 }
+function deletePost(){
+    return new Promise((resolve, reject)=>{
+        setTimeout( () =>{
+            if(posts.length>0){
+                const lastElement = posts.pop()
+                resolve(lastElement);
+            }else{
+                reject('array is empty now');
+            }
+        },1000);
+    });
+}
 
 createPost({title:`Post Three`,body:`This is post three`})
-.then(getPost)
-.catch(err=>console.log(err));
-
+.then(()=>{
+    getPost()
+    deletePost().then((deleteElement)=>{
+        console.log(deleteElement)
+        getPost();
+        deletePost().then(()=>{
+            getPost();
+            deletePost().then(()=>{
+                getPost();
+                deletePost().then(()=>{})
+                .catch((err)=>{
+                    console.log('Inside catch block',err)
+                })
+            }).catch((err)=>{})
+        }).catch((err)=>{})
+    })
+})
+.catch(err => console.log(err))
